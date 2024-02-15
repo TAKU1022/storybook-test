@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Button } from './Button';
 
 const meta = {
   component: Button,
+  decorators: [(Story) => <Story />],
 } as Meta<typeof Button>;
 
 export default meta;
