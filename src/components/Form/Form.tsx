@@ -38,11 +38,6 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
             <Input {...register('email')} />
             <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
           </FormControl>
-          <FormControl isInvalid={!!errors.description} isRequired>
-            <FormLabel>詳細内容</FormLabel>
-            <Textarea {...register('description')} />
-            <FormErrorMessage>{errors.description?.message}</FormErrorMessage>
-          </FormControl>
           <FormControl isInvalid={!!errors.group} isRequired>
             <FormLabel>所属グループ</FormLabel>
             <Select {...register('group')}>
@@ -64,6 +59,11 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
               <option value="categoryD">カテゴリーD</option>
             </Select>
             <FormErrorMessage>{errors.category?.message}</FormErrorMessage>
+          </FormControl>
+          <FormControl isInvalid={!!errors.description} isRequired>
+            <FormLabel>詳細内容</FormLabel>
+            <Textarea {...register('description')} />
+            <FormErrorMessage>{errors.description?.message}</FormErrorMessage>
           </FormControl>
         </Stack>
         <Flex justifyContent="center">
