@@ -1,10 +1,14 @@
 import { Card, CardBody, Text } from '@chakra-ui/react';
 
-export const Article: React.FC = () => {
+interface Props {
+  body: string;
+}
+
+export const Article: React.FC<Props> = ({ body }) => {
   return (
     <Card>
       <CardBody>
-        <Text>View a summary of all your customers over the last month.</Text>
+        <Text>{body}</Text>
       </CardBody>
     </Card>
   );
