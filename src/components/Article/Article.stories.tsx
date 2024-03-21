@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Article } from './Article';
 import { Box } from '@chakra-ui/react';
+import { within, expect } from '@storybook/test';
 
 const meta = {
   component: Article,
@@ -17,4 +18,13 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    body: 'View a summary of all your customers over the last month.',
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+
+    expect(canvas.getByText(args.body)).toBeVisible();
+  },
+};
