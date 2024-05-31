@@ -16,16 +16,18 @@ export const SelectField: React.FC<Props> = forwardRef<
   HTMLSelectElement,
   Props
 >(({ options, label, errorMessage, ...selectProps }, ref) => {
+  const id = selectProps.name;
+
   return (
     <div className={styles.root}>
       {!!label && (
-        <label htmlFor={selectProps.id} className={styles.label}>
+        <label htmlFor={id} className={styles.label}>
           {label}
           {selectProps.required && <span className={styles.required}>*</span>}
         </label>
       )}
       <div className={styles.select}>
-        <select ref={ref} {...selectProps} data-error={!!errorMessage}>
+        <select ref={ref} {...selectProps} id={id} data-error={!!errorMessage}>
           {options.map((option, index) => (
             <option key={index} value={option.value}>
               {option.label}

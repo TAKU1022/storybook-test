@@ -8,10 +8,12 @@ interface Props extends React.ComponentProps<'input'> {
 
 export const TextField = forwardRef<HTMLInputElement, Props>(
   ({ label, errorMessage, ...inputProps }, ref) => {
+    const id = inputProps.name;
+
     return (
       <div className={styles.root}>
         {!!label && (
-          <label htmlFor={inputProps.id} className={styles.label}>
+          <label htmlFor={id} className={styles.label}>
             {label}
             {inputProps.required && <span className={styles.required}>*</span>}
           </label>
@@ -19,6 +21,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>(
         <input
           ref={ref}
           {...inputProps}
+          id={id}
           data-error={!!errorMessage}
           className={styles.input}
         />

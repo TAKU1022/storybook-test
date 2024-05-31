@@ -26,20 +26,21 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
     <form noValidate className={styles.root} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.formWrapper}>
         <TextField
-          label="氏名"
           required
+          label="氏名"
           {...register('fullName', { required: '氏名を入力してください' })}
           errorMessage={errors.fullName?.message}
         />
         <TextField
-          label="メールアドレス"
           required
+          label="メールアドレス"
           {...register('email', {
             required: 'メールアドレスを入力してください',
           })}
           errorMessage={errors.email?.message}
         />
         <SelectField
+          required
           label="所属グループ"
           options={[
             { value: '', label: '選択してください' },
@@ -48,11 +49,11 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
             { value: 'groupC', label: 'グループC' },
             { value: 'groupD', label: 'グループD' },
           ]}
-          required
           {...register('group', { required: '所属グループを選択してください' })}
           errorMessage={errors.group?.message}
         />
         <SelectField
+          required
           label="該当カテゴリー"
           options={[
             { value: '', label: '選択してください' },
@@ -61,7 +62,6 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
             { value: 'categoryC', label: 'カテゴリーC' },
             { value: 'categoryD', label: 'カテゴリーD' },
           ]}
-          required
           {...register('category', {
             required: '該当カテゴリーを選択してください',
           })}
